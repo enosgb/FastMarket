@@ -4,6 +4,7 @@
 #include "window_editar_produto_venda.h"
 #include "mainwindow.h"
 #include "variaveis_globais.h"
+#include "funcoes_globais.h"
 
 QString window_novaVenda::global_idProduto;
 QString window_novaVenda::global_descricaoProduto;
@@ -173,10 +174,11 @@ void window_novaVenda::on_btn_veFinalizarVenda_clicked()
                 QString valorTotal=ui->tw_veProdutos->item(linha,4)->text();
                 query.prepare("insert into tb_produtosVendidos (id_venda,produto,quantidade,valor_unitario,valor_total) values("+QString::number(idVenda)+""
                 ",'"+produto+"',"+quantidade+","+valorUnitario+","+valorTotal+")");
+                query.exec();
                 linha++;
             }
 
-            //QMessageBox::information(this,"Venda Concluída",mensagemVenda);
+            QMessageBox::information(this,"Venda Concluída",mensagemVenda);
 
             resetCampo();
             removerLinhas(ui->tw_veProdutos);
@@ -185,4 +187,9 @@ void window_novaVenda::on_btn_veFinalizarVenda_clicked()
     }else{
         QMessageBox::warning(this,"Atenção","É necessário adicionar algum produto!");
     }
+}
+
+void window_novaVenda::on_btn_vePesquisar_clicked()
+{
+
 }

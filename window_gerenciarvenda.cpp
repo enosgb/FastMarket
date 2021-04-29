@@ -3,12 +3,20 @@
 #include <QtSql>
 #include <QMessageBox>
 #include <QDebug>
+#include <QPrinter>
+#include <QPainter>
+#include <QDir>
+#include <QDesktopServices>
 
 window_gerenciarVenda::window_gerenciarVenda(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::window_gerenciarVenda)
 {
     ui->setupUi(this);
+
+    QDate data_ini = QDate::currentDate();
+    ui->deInicial->setDate(data_ini);
+    ui->deFinal->setDate(data_ini);
 
     ui->twProdutosVendas->horizontalHeader()->setVisible(true);
     ui->twProdutosVendas->setColumnCount(5);
@@ -54,13 +62,14 @@ window_gerenciarVenda::~window_gerenciarVenda()
 
 void window_gerenciarVenda::on_twVendas_itemSelectionChanged()
 {
-    ui->twProdutosVendas->clear();
     ui->twProdutosVendas->setRowCount(0);
+    ui->twProdutosVendas->clear();
+
 
     con.abrir();
     int linhas=0;
     QSqlQuery query;
-    query.prepare("select id_movimentacao,produto,quantidade,valor_unitario,valor_total from tb_produtosVendas where id_venda="+ui->twVendas->item(ui->twVendas->currentRow(),0)->text());
+    query.prepare("select id_movimentacao,produto,quantidade,valor_unitario,valor_total from tb_produtosVendidos where id_venda="+ui->twVendas->item(ui->twVendas->currentRow(),0)->text());
     query.exec();
     query.first();
     do{
@@ -95,4 +104,48 @@ void window_gerenciarVenda::on_btnBuscarVendas_clicked()
         linhas++;
     }while(query.next());
     con.fechar();
+}
+
+void window_gerenciarVenda::on_btn_todasVendas_clicked()
+{
+
+}
+
+void window_gerenciarVenda::on_btn_gerarPdf_clicked()
+{
+    QString nome=QDir::currentPath()+"/"+ui->twVendas->item(ui->twVendas->currentRow(),0)->text()+"_vendas.pdf";
+
+    QPrinter printer;
+    printer.setOutputFormat(QPrinter::PdfFormat);
+    printer.setOutputFileName(nome);
+
+    QPainter painter;
+    if(!painter.begin(&printer)){
+        qDebug() << "Erro ao abrir PDF";
+        return;
+    }
+    int linha = 250;
+    int salto = 20;
+
+    painter.drawPixmap(25,25,QPixmap(":/imagens/fastmarket-logo.jpg"));
+
+    painter.drawText(25,200,"ID:"+ui->twVendas->item(ui->twVendas->currentRow(),0)->text());
+    painter.drawText(150,200,"Data:"+ui->twVendas->item(ui->twVendas->currentRow(),1)->text());
+
+    for(int i = 0;i<ui->twProdutosVendas->rowCount();i++){
+        painter.drawText(25,linha,ui->twProdutosVendas->item(i,0)->text());
+        painter.drawText(50,linha,ui->twProdutosVendas->item(i,1)->text());
+        painter.drawText(300,linha,ui->twProdutosVendas->item(i,2)->text());
+        linha+=salto;
+
+    }
+
+    printer.newPage();
+
+    painter.drawText(25,25,"Relatório fastmarket Ok");
+
+    painter.end();
+
+    QDesktopServices::openUrl(QUrl("file:///"+nome));
+
 }

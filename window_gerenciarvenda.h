@@ -21,6 +21,10 @@ private slots:
 
     void on_btnBuscarVendas_clicked();
 
+    void on_btn_todasVendas_clicked();
+
+    void on_btn_gerarPdf_clicked();
+
 private:
     Ui::window_gerenciarVenda *ui;
 };
