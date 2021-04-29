@@ -115,3 +115,13 @@ void MainWindow::on_actionVendas_triggered()
         QMessageBox::warning(this,"Atenção","Você precisa logar primeiro!");
     }
 }
+
+void MainWindow::on_actionSAIR_triggered()
+{
+    close();
+}
+
+void MainWindow::on_actionSobre_triggered()
+{
+    QMessageBox::information(this,"SOBRE","FastMarket é um programa de automação que ainda está em desenvolvimento.\nTecnologias utilizadas: C++,QT5 framework e SqLite.");
+}

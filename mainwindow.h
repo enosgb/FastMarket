@@ -32,6 +32,10 @@ private slots:
 
     void on_actionVendas_triggered();
 
+    void on_actionSAIR_triggered();
+
+    void on_actionSobre_triggered();
+
 private:
     Ui::MainWindow *ui;
 };

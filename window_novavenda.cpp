@@ -5,6 +5,9 @@
 #include "mainwindow.h"
 #include "variaveis_globais.h"
 #include "funcoes_globais.h"
+#include "window_pesquisavenda.h"
+
+QString window_pesquisaVenda::retIdVenda;
 
 QString window_novaVenda::global_idProduto;
 QString window_novaVenda::global_descricaoProduto;
@@ -42,7 +45,6 @@ window_novaVenda::window_novaVenda(QWidget *parent) :
 
     ui->txt_veCodigo->setFocus();
     linhas = 0;
-
 }
 
 window_novaVenda::~window_novaVenda()
@@ -191,5 +193,30 @@ void window_novaVenda::on_btn_veFinalizarVenda_clicked()
 
 void window_novaVenda::on_btn_vePesquisar_clicked()
 {
-
+    window_pesquisaVenda wpesquisaVenda;
+    wpesquisaVenda.exec();
+    QSqlQuery query;
+    QString id=window_pesquisaVenda::retIdVenda;
+    double valorTotal;
+    query.prepare("select id_produto,produto,valor_venda from tb_produtos where id_produto="+id);
+    if(query.exec()){
+        query.first();
+        if(query.value(0).toString()!=""){
+            ui->tw_veProdutos->insertRow(linhas);
+            ui->tw_veProdutos->setItem(linhas,0,new QTableWidgetItem(query.value(0).toString()));
+            ui->tw_veProdutos->setItem(linhas,1,new QTableWidgetItem(query.value(1).toString()));
+            ui->tw_veProdutos->setItem(linhas,2,new QTableWidgetItem(query.value(2).toString()));
+            ui->tw_veProdutos->setItem(linhas,3,new QTableWidgetItem(ui->txt_veQuantidade->text()));
+            valorTotal = ui->txt_veQuantidade->text().toDouble()*query.value(2).toDouble();
+            ui->tw_veProdutos->setItem(linhas,4,new QTableWidgetItem(QString::number(valorTotal)));
+            ui->tw_veProdutos->setRowHeight(linhas,20);
+            linhas++;
+            ui->lb_veTotalVenda->setText("R$ "+QString::number(calcularTotal(ui->tw_veProdutos,4)));
+        }else{
+            QMessageBox::warning(this,"ERRO","Produto não encontrado!");
+        }
+        resetCampo();
+    }else{
+        QMessageBox::warning(this,"ERRO","Erro ao inserir novo produto!");
+    }
 }

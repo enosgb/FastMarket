@@ -18,7 +18,8 @@ SOURCES += \
     window_gerenciarvenda.cpp \
     window_login.cpp \
     window_novavenda.cpp \
-    window_pagamento.cpp
+    window_pagamento.cpp \
+    window_pesquisavenda.cpp
 
 HEADERS += \
     connect.h \
@@ -31,7 +32,8 @@ HEADERS += \
     window_gerenciarvenda.h \
     window_login.h \
     window_novavenda.h \
-    window_pagamento.h
+    window_pagamento.h \
+    window_pesquisavenda.h
 
 FORMS += \
     mainwindow.ui \
@@ -41,7 +43,8 @@ FORMS += \
     window_gerenciarvenda.ui \
     window_login.ui \
     window_novavenda.ui \
-    window_pagamento.ui
+    window_pagamento.ui \
+    window_pesquisavenda.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

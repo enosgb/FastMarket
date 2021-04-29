@@ -98,7 +98,6 @@ void window_gerenciarEstoque::on_tb_gerenciarProdutos_currentChanged(int index)
             ui->tw_geProdutos->setColumnWidth(1,230);
             QStringList cabecalhos={"Código","Produto"};
             ui->tw_geProdutos->setHorizontalHeaderLabels(cabecalhos);
-            ui->tw_geProdutos->setStyleSheet("QTableView {select-background-color:blue}");
             ui->tw_geProdutos->setEditTriggers(QAbstractItemView::NoEditTriggers);
             ui->tw_geProdutos->setSelectionBehavior(QAbstractItemView::SelectRows);
             ui->tw_geProdutos->verticalHeader()->setVisible(false);
