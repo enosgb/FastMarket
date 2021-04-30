@@ -15,6 +15,7 @@ window_pesquisaVenda::window_pesquisaVenda(QWidget *parent) :
             QMessageBox::warning(this,"ERRO","Erro ao abrir banco de dados!");
         }
     }
+
     ui->tw_PeProdutos->setColumnCount(2);
     ui->tw_PeProdutos->setColumnWidth(0,150);
     ui->tw_PeProdutos->setColumnWidth(1,250);

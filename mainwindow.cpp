@@ -47,7 +47,7 @@ void MainWindow::on_btn_bloqueio_clicked()
        wlogin.exec();
        if(variaveis_globais::login){
            ui->btn_bloqueio->setIcon(cadeado_aberto);
-           ui->lb_nome->setText(variaveis_globais::nome_user);
+           ui->lb_nome->setText(variaveis_globais::username);
        }
 
     }else{

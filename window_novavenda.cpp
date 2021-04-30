@@ -151,6 +151,12 @@ void window_novaVenda::on_btn_veEditarProduto_clicked()
 void window_novaVenda::on_btn_veFinalizarVenda_clicked()
 {
     if(ui->tw_veProdutos->rowCount()>0){
+       window_pagamento wpagamento;
+       wpagamento.exec();
+       if(variaveis_globais::statusPagamento == false){
+           QMessageBox::information(this,"Pagamento","É necessario informar a forma de pagamento para finalizar a venda!");
+           return;
+       }
        int idVenda;
        QString mensagemVenda;
        double total=calcularTotal(ui->tw_veProdutos,4);
@@ -183,6 +189,7 @@ void window_novaVenda::on_btn_veFinalizarVenda_clicked()
                resetCampo();
                removerLinhas(ui->tw_veProdutos);
                ui->lb_veTotalVenda->setText("R$ 0.00");
+               variaveis_globais::statusPagamento=false;
                close();
                window_novaVenda wnovaVenda;
                wnovaVenda.exec();

@@ -7,6 +7,10 @@ window_pagamento::window_pagamento(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    if(!con.abrir()){
+
+    }
+
     ui->cb_tipoPagamento->addItem("Dinheiro");
     ui->cb_tipoPagamento->addItem("Cartão");
 }
