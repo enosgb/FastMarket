@@ -1,11 +1,11 @@
 #ifndef WINDOW_NOVAVENDA_H
 #define WINDOW_NOVAVENDA_H
 
-
 #include <QDialog>
-
 #include<connect.h>
 #include <QTableWidget>
+#include "window_pesquisavenda.h"
+
 
 namespace Ui {
 class window_novaVenda;
@@ -26,6 +26,9 @@ public:
     static QString global_idProduto,global_descricaoProduto,global_quantidade,global_valorUnitario,global_valorTotal;
     static bool editar;
     void removerLinhas(QTableWidget *tw);
+
+
+
 
 private slots:
     void on_txt_veCodigo_returnPressed();

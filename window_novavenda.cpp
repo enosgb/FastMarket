@@ -5,9 +5,10 @@
 #include "mainwindow.h"
 #include "variaveis_globais.h"
 #include "funcoes_globais.h"
-#include "window_pesquisavenda.h"
+
 
 QString window_pesquisaVenda::retIdVenda;
+
 
 QString window_novaVenda::global_idProduto;
 QString window_novaVenda::global_descricaoProduto;
@@ -54,8 +55,9 @@ window_novaVenda::~window_novaVenda()
 
 void window_novaVenda::on_txt_veCodigo_returnPressed()
 {
+    window_pesquisaVenda::retIdVenda = ui->txt_veCodigo->text();
     QSqlQuery query;
-    QString id=ui->txt_veCodigo->text();
+    QString id=window_pesquisaVenda::retIdVenda;
     double valorTotal;
     query.prepare("select id_produto,produto,valor_venda from tb_produtos where id_produto="+id);
     if(query.exec()){
@@ -166,7 +168,6 @@ void window_novaVenda::on_btn_veFinalizarVenda_clicked()
             idVenda=query.value(0).toInt();
             mensagemVenda="ID venda: "+QString::number(idVenda)+"\nValor total: R$"+QString::number(total);
 
-
             int totalLinhas=ui->tw_veProdutos->rowCount();
             int linha=0;
             while(linha<totalLinhas){
@@ -189,6 +190,9 @@ void window_novaVenda::on_btn_veFinalizarVenda_clicked()
     }else{
         QMessageBox::warning(this,"Atenção","É necessário adicionar algum produto!");
     }
+    close();
+    window_novaVenda wnovaVenda;
+    wnovaVenda.exec();
 }
 
 void window_novaVenda::on_btn_vePesquisar_clicked()
