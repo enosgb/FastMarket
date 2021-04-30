@@ -5,6 +5,7 @@
 #include<connect.h>
 #include <QTableWidget>
 #include "window_pesquisavenda.h"
+#include "window_pagamento.h"
 
 
 namespace Ui {

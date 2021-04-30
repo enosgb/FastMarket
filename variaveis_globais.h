@@ -4,7 +4,7 @@
 
 class variaveis_globais{
 public:
-    static bool login;
+    static bool login,statusPagamento;
     static QString nome_user,acceso_user,username;
     static int userId;
 };

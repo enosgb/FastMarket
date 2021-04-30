@@ -16,6 +16,7 @@ QString window_novaVenda::global_quantidade;
 QString window_novaVenda::global_valorUnitario;
 QString window_novaVenda::global_valorTotal;
 bool window_novaVenda::editar;
+bool variaveis_globais::statusPagamento;
 
 window_novaVenda::window_novaVenda(QWidget *parent) :
     QDialog(parent),
@@ -150,51 +151,46 @@ void window_novaVenda::on_btn_veEditarProduto_clicked()
 void window_novaVenda::on_btn_veFinalizarVenda_clicked()
 {
     if(ui->tw_veProdutos->rowCount()>0){
-        int idVenda;
-        QString mensagemVenda;
-        double total=calcularTotal(ui->tw_veProdutos,4);
-        QString data=QDate::currentDate().toString("yyyy-MM-dd");
-        QString hora=QTime::currentTime().toString("hh:mm:ss");
-        QSqlQuery query;
-        query.prepare("insert into tb_vendas (data_venda,hora_venda,id_usuario,valor_total,id_tipoPagamento) values('"+data+"','"+hora+"'"
-                      ","+QString::number(variaveis_globais::userId)+","+QString::number(total)+",1)");
-
-        if(!query.exec()){
-            QMessageBox::warning(this,"ERRO","Erro ao registrar venda!");
-        }else{
-            query.prepare("select id_venda from tb_vendas order by id_venda desc limit 1 ");
-            query.exec();
-            query.first();
-            idVenda=query.value(0).toInt();
-            mensagemVenda="ID venda: "+QString::number(idVenda)+"\nValor total: R$"+QString::number(total);
-
-            int totalLinhas=ui->tw_veProdutos->rowCount();
-            int linha=0;
-            while(linha<totalLinhas){
-                QString produto=ui->tw_veProdutos->item(linha,1)->text();
-                QString quantidade=ui->tw_veProdutos->item(linha,3)->text();
-                QString valorUnitario=ui->tw_veProdutos->item(linha,2)->text();
-                QString valorTotal=ui->tw_veProdutos->item(linha,4)->text();
-                query.prepare("insert into tb_produtosVendidos (id_venda,produto,quantidade,valor_unitario,valor_total) values("+QString::number(idVenda)+""
-                ",'"+produto+"',"+quantidade+","+valorUnitario+","+valorTotal+")");
-                query.exec();
-                linha++;
-            }
-
-            QMessageBox::information(this,"Venda Concluída",mensagemVenda);
-
-            resetCampo();
-            removerLinhas(ui->tw_veProdutos);
-            ui->lb_veTotalVenda->setText("R$ 0.00");
-        }
-    }else{
-        QMessageBox::warning(this,"Atenção","É necessário adicionar algum produto!");
-    }
-    close();
-    window_novaVenda wnovaVenda;
-    wnovaVenda.exec();
+       int idVenda;
+       QString mensagemVenda;
+       double total=calcularTotal(ui->tw_veProdutos,4);
+       QString data=QDate::currentDate().toString("yyyy-MM-dd");
+       QString hora=QTime::currentTime().toString("hh:mm:ss");
+       QSqlQuery query;
+       query.prepare("insert into tb_vendas (data_venda,hora_venda,id_usuario,valor_total,id_tipoPagamento) values('"+data+"','"+hora+"'"
+                     ","+QString::number(variaveis_globais::userId)+","+QString::number(total)+",1)");
+       if(!query.exec()){
+          QMessageBox::warning(this,"ERRO","Erro ao registrar venda!");
+       }else{
+          query.prepare("select id_venda from tb_vendas order by id_venda desc limit 1 ");
+          query.exec();
+          query.first();
+          idVenda=query.value(0).toInt();
+          mensagemVenda="ID venda: "+QString::number(idVenda)+"\nValor total: R$"+QString::number(total);
+          int totalLinhas=ui->tw_veProdutos->rowCount();
+          int linha=0;
+          while(linha<totalLinhas){
+               QString produto=ui->tw_veProdutos->item(linha,1)->text();
+               QString quantidade=ui->tw_veProdutos->item(linha,3)->text();
+               QString valorUnitario=ui->tw_veProdutos->item(linha,2)->text();
+               QString valorTotal=ui->tw_veProdutos->item(linha,4)->text();
+               query.prepare("insert into tb_produtosVendidos (id_venda,produto,quantidade,valor_unitario,valor_total) values("+QString::number(idVenda)+""
+                             ",'"+produto+"',"+quantidade+","+valorUnitario+","+valorTotal+")");
+               query.exec();
+               linha++;
+               }
+               QMessageBox::information(this,"Venda Concluída",mensagemVenda);
+               resetCampo();
+               removerLinhas(ui->tw_veProdutos);
+               ui->lb_veTotalVenda->setText("R$ 0.00");
+               close();
+               window_novaVenda wnovaVenda;
+               wnovaVenda.exec();
+       }
+      }else{
+             QMessageBox::warning(this,"Atenção","É necessário adicionar algum produto!");
+      }
 }
-
 void window_novaVenda::on_btn_vePesquisar_clicked()
 {
     window_pesquisaVenda wpesquisaVenda;
