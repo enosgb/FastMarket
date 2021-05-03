@@ -30,7 +30,6 @@ window_gerenciarUsuarios::window_gerenciarUsuarios(QWidget *parent) :
     ui->tw_geUsuarios->setColumnWidth(1,235);
     QStringList cabecalhos={"ID","Nome"};
     ui->tw_geUsuarios->setHorizontalHeaderLabels(cabecalhos);
-    ui->tw_geUsuarios->setStyleSheet("QTableView {select-background-color:blue}");
     ui->tw_geUsuarios->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->tw_geUsuarios->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui->tw_geUsuarios->verticalHeader()->setVisible(false);
