@@ -2,10 +2,12 @@
 #define VARIAVEIS_GLOBAIS_H
 #include <QString>
 
+
 class variaveis_globais{
 public:
     static bool login,statusPagamento;
-    static QString nome_user,acceso_user,username;
+    static QString nome_user,acceso_user,username,tipoPagamento;
+    static double totalGlobal;
     static int userId;
 };
 

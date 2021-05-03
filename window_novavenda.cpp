@@ -8,6 +8,8 @@
 
 
 QString window_pesquisaVenda::retIdVenda;
+QString variaveis_globais::tipoPagamento;
+double variaveis_globais::totalGlobal;
 
 
 QString window_novaVenda::global_idProduto;
@@ -151,6 +153,7 @@ void window_novaVenda::on_btn_veEditarProduto_clicked()
 void window_novaVenda::on_btn_veFinalizarVenda_clicked()
 {
     if(ui->tw_veProdutos->rowCount()>0){
+       variaveis_globais::totalGlobal = calcularTotal(ui->tw_veProdutos,4);
        window_pagamento wpagamento;
        wpagamento.exec();
        if(variaveis_globais::statusPagamento == false){
@@ -163,8 +166,8 @@ void window_novaVenda::on_btn_veFinalizarVenda_clicked()
        QString data=QDate::currentDate().toString("yyyy-MM-dd");
        QString hora=QTime::currentTime().toString("hh:mm:ss");
        QSqlQuery query;
-       query.prepare("insert into tb_vendas (data_venda,hora_venda,id_usuario,valor_total,id_tipoPagamento) values('"+data+"','"+hora+"'"
-                     ","+QString::number(variaveis_globais::userId)+","+QString::number(total)+",1)");
+       query.prepare("insert into tb_vendas (data_venda,hora_venda,id_usuario,valor_total,tipoPagamento) values('"+data+"','"+hora+"'"
+                     ","+QString::number(variaveis_globais::userId)+","+QString::number(total)+",'"+variaveis_globais::tipoPagamento+"')");
        if(!query.exec()){
           QMessageBox::warning(this,"ERRO","Erro ao registrar venda!");
        }else{
@@ -182,9 +185,9 @@ void window_novaVenda::on_btn_veFinalizarVenda_clicked()
                QString valorTotal=ui->tw_veProdutos->item(linha,4)->text();
                query.prepare("insert into tb_produtosVendidos (id_venda,produto,quantidade,valor_unitario,valor_total) values("+QString::number(idVenda)+""
                              ",'"+produto+"',"+quantidade+","+valorUnitario+","+valorTotal+")");
-               query.exec();
+               query.exec();   
                linha++;
-               }
+               }              
                QMessageBox::information(this,"Venda Concluída",mensagemVenda);
                resetCampo();
                removerLinhas(ui->tw_veProdutos);

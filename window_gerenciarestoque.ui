@@ -201,6 +201,9 @@
         <property name="text">
          <string>Código</string>
         </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
        </widget>
        <widget class="QRadioButton" name="rb_geDescricao">
         <property name="geometry">
