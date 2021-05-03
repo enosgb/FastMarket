@@ -44,6 +44,6 @@ create table tb_vendas
     hora_venda varchar(10) not null,
     id_usuario int not null,
     valor_total real not null,
-    id_tipoPagamento int,
+    tipoPagamento varchar(14),
     primary  key(id_venda)
 );
