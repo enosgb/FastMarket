@@ -131,14 +131,20 @@ void window_gerenciarVenda::on_btn_gerarPdf_clicked()
 
     painter.drawText(25,200,"ID:"+ui->twVendas->item(ui->twVendas->currentRow(),0)->text());
     painter.drawText(150,200,"Data:"+ui->twVendas->item(ui->twVendas->currentRow(),1)->text());
+    painter.drawText(25,350,"Valor Total ");
+
+    painter.drawText(25,225,+"Qtd");
+    painter.drawText(70,225,+"Produto");
+    painter.drawText(200,225,+"Vlr.Unitário");
 
     for(int i = 0;i<ui->twProdutosVendas->rowCount();i++){
-        painter.drawText(25,linha,ui->twProdutosVendas->item(i,0)->text());
-        painter.drawText(50,linha,ui->twProdutosVendas->item(i,1)->text());
-        painter.drawText(300,linha,ui->twProdutosVendas->item(i,2)->text());
+        painter.drawText(25,linha,ui->twProdutosVendas->item(i,2)->text());
+        painter.drawText(70,linha,ui->twProdutosVendas->item(i,1)->text());
+        painter.drawText(200,linha,+"R$ "+ui->twProdutosVendas->item(i,3)->text());
         linha+=salto;
-
     }
+
+    painter.drawText(200,350," R$ "+ui->twVendas->item(ui->twVendas->currentRow(),4)->text());
 
     printer.newPage();
 
