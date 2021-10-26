@@ -24,6 +24,7 @@ window_pesquisaVenda::window_pesquisaVenda(QWidget *parent) :
     ui->tw_PeProdutos->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui->tw_PeProdutos->setHorizontalHeaderLabels(cabecalho);
     ui->tw_PeProdutos->verticalHeader()->setVisible(false);
+    ui->txt_PePesquisa->setFocus();
 
 }
 
@@ -78,3 +79,4 @@ void window_pesquisaVenda::on_btn_PeSelecionarItem_clicked()
   window_pesquisaVenda::retIdVenda=ui->tw_PeProdutos->item(ui->tw_PeProdutos->currentRow(),0)->text();
   close();
 }
+

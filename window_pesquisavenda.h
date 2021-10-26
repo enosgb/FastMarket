@@ -31,6 +31,7 @@ private slots:
 
     void on_btn_PeSelecionarItem_clicked();
 
+
 private:
     Ui::window_pesquisaVenda *ui;
 };

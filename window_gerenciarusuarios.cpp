@@ -17,10 +17,10 @@ window_gerenciarUsuarios::window_gerenciarUsuarios(QWidget *parent) :
             QMessageBox::warning(this,"ERRO","Erro ao abrir banco de dados!");
         }
     }
-    ui->cb_acessoNovoUsuario->addItem("1");
-    ui->cb_acessoNovoUsuario->addItem("2");
-    ui->cb_geAcessoUsuario->addItem("1");
-    ui->cb_geAcessoUsuario->addItem("2");
+    ui->cb_acessoNovoUsuario->addItem("Administrador");
+    ui->cb_acessoNovoUsuario->addItem("Comum");
+    ui->cb_geAcessoUsuario->addItem("Administrador");
+    ui->cb_geAcessoUsuario->addItem("Comum");
     ui->txt_nomeNovoUsuario->setFocus();
 
     ui->tabWidget->setCurrentIndex(0);

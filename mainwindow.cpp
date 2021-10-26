@@ -82,7 +82,7 @@ void MainWindow::on_btn_novaVenda_clicked()
 void MainWindow::on_actionEstoque_triggered()
 {
     if(variaveis_globais::login){
-        if(variaveis_globais::acceso_user=="1"){
+        if(variaveis_globais::acceso_user=="Administrador"){
             window_gerenciarEstoque wgerenciarEstoque;
             wgerenciarEstoque.exec();
         }else {
@@ -99,7 +99,7 @@ void MainWindow::on_actionEstoque_triggered()
 void MainWindow::on_actionUsu_rios_triggered()
 {
     if(variaveis_globais::login){
-        if(variaveis_globais::acceso_user=="1"){
+        if(variaveis_globais::acceso_user=="Administrador"){
            window_gerenciarUsuarios wgerenciarUsuarios;
            wgerenciarUsuarios.exec();
         }else {
@@ -115,7 +115,7 @@ void MainWindow::on_actionUsu_rios_triggered()
 void MainWindow::on_actionVendas_triggered()
 {
     if(variaveis_globais::login){
-        if(variaveis_globais::acceso_user=="1"){
+        if(variaveis_globais::acceso_user=="Administrador"){
             window_gerenciarVenda wgerenciarVenda;
             wgerenciarVenda.exec();
         }else {

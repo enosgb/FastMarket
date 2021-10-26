@@ -43,6 +43,8 @@ private slots:
 
     void on_btn_vePesquisar_clicked();
 
+    void on_txt_veQuantidade_returnPressed();
+
 private:
     Ui::window_novaVenda *ui;
 };

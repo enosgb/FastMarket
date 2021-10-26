@@ -58,6 +58,9 @@ window_novaVenda::~window_novaVenda()
 
 void window_novaVenda::on_txt_veCodigo_returnPressed()
 {
+    if(ui->txt_veCodigo->text()==""){
+        ui->btn_vePesquisar->click();
+    }else{
     window_pesquisaVenda::retIdVenda = ui->txt_veCodigo->text();
     QSqlQuery query;
     QString id=window_pesquisaVenda::retIdVenda;
@@ -83,6 +86,7 @@ void window_novaVenda::on_txt_veCodigo_returnPressed()
     }else{
         QMessageBox::warning(this,"ERRO","Erro ao inserir novo produto!");
     }
+  }
 
 }
 
@@ -231,4 +235,10 @@ void window_novaVenda::on_btn_vePesquisar_clicked()
     }
 }
 
+
+
+void window_novaVenda::on_txt_veQuantidade_returnPressed()
+{
+    ui->txt_veCodigo->setFocus();
+}
 

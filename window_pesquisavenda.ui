@@ -115,6 +115,14 @@
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>txt_PePesquisa</tabstop>
+  <tabstop>btn_PeBuscar</tabstop>
+  <tabstop>tw_PeProdutos</tabstop>
+  <tabstop>btn_PeSelecionarItem</tabstop>
+  <tabstop>rb_PeCodigo</tabstop>
+  <tabstop>rb_PeDescricao</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

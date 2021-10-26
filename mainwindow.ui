@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>470</width>
-    <height>290</height>
+    <width>879</width>
+    <height>579</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -40,23 +40,7 @@
     <enum>Qt::LeftToRight</enum>
    </property>
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <widget class="QPushButton" name="btn_vender_icon">
-      <property name="styleSheet">
-       <string notr="true">border:none;</string>
-      </property>
-      <property name="text">
-       <string>Icon-Vender</string>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>50</width>
-        <height>50</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0">
+    <item row="2" column="1">
      <widget class="QPushButton" name="btn_logo_main">
       <property name="enabled">
        <bool>true</bool>
@@ -75,33 +59,23 @@
       </property>
      </widget>
     </item>
-    <item row="3" column="0">
-     <widget class="QLabel" name="lb_nome">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-        <horstretch>1</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="text">
-       <string>Sem usuário.</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="0">
-     <widget class="QPushButton" name="btn_bloqueio">
+    <item row="0" column="1">
+     <widget class="QPushButton" name="btn_vender_icon">
       <property name="styleSheet">
-       <string notr="true"/>
+       <string notr="true">border:none;</string>
       </property>
       <property name="text">
-       <string>bloq</string>
+       <string>Icon-Vender</string>
       </property>
-      <property name="flat">
-       <bool>true</bool>
+      <property name="iconSize">
+       <size>
+        <width>50</width>
+        <height>50</height>
+       </size>
       </property>
      </widget>
     </item>
-    <item row="1" column="0">
+    <item row="1" column="1">
      <widget class="QPushButton" name="btn_novaVenda">
       <property name="styleSheet">
        <string notr="true">background:#7041EE;
@@ -117,6 +91,58 @@ font: italic &quot;AR PL New Kai&quot;;
       </property>
      </widget>
     </item>
+    <item row="8" column="1">
+     <widget class="QPushButton" name="btn_bloqueio">
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string>bloq</string>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="1">
+     <widget class="QLabel" name="lb_nome">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>1</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text">
+       <string>Sem usuário.</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="1" column="2">
+     <spacer name="horizontalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -124,8 +150,8 @@ font: italic &quot;AR PL New Kai&quot;;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>470</width>
-     <height>23</height>
+     <width>879</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
