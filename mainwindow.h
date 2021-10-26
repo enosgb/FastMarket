@@ -19,7 +19,8 @@ public:
 
     QIcon cadeado_aberto;
     QIcon cadeado_fechado;
-
+    QIcon logo_main;
+    QIcon vender_icon;
 
 private slots:
     void on_btn_bloqueio_clicked();

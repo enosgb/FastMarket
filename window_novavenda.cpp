@@ -47,7 +47,7 @@ window_novaVenda::window_novaVenda(QWidget *parent) :
     ui->tw_veProdutos->verticalHeader()->setVisible(false);
 
 
-    ui->txt_veCodigo->setFocus();
+    ui->txt_veQuantidade->setFocus();
     linhas = 0;
 }
 
@@ -230,3 +230,5 @@ void window_novaVenda::on_btn_vePesquisar_clicked()
         QMessageBox::warning(this,"ERRO","Erro ao inserir novo produto!");
     }
 }
+
+

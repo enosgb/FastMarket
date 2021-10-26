@@ -25,11 +25,22 @@ MainWindow::MainWindow(QWidget *parent)
     variaveis_globais::login=false;
     cadeado_fechado.addFile(":/imagens/imagens/cadeado_fechado.png");
     cadeado_aberto.addFile(":/imagens/imagens/cadeado_aberto.png");
+    logo_main.addFile(":/imagens/fastmarket-logo.jpg");
+    vender_icon.addFile(":/imagens/vender.png");
 
     ui->btn_bloqueio->setText("");
     ui->btn_bloqueio->setIcon(cadeado_fechado);
+    ui->btn_logo_main->setText("");
+    ui->btn_logo_main->setIcon(logo_main);
+    ui->btn_vender_icon->setText("");
+    ui->btn_vender_icon->setIcon(vender_icon);
+
     ui->statusbar->addWidget(ui->btn_bloqueio);
     ui->statusbar->addWidget(ui->lb_nome);
+
+
+
+
 
 
 }
@@ -125,3 +136,4 @@ void MainWindow::on_actionSobre_triggered()
 {
     QMessageBox::information(this,"SOBRE","FastMarket é um programa de automação que ainda está em desenvolvimento.\nTecnologias utilizadas: C++,QT5 framework e SqLite.");
 }
+

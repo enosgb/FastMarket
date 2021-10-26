@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Nova Venda</string>
   </property>
   <widget class="QLineEdit" name="txt_veQuantidade">
    <property name="geometry">
@@ -176,6 +176,15 @@
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>txt_veQuantidade</tabstop>
+  <tabstop>btn_vePesquisar</tabstop>
+  <tabstop>txt_veCodigo</tabstop>
+  <tabstop>tw_veProdutos</tabstop>
+  <tabstop>btn_veExcluirProduto</tabstop>
+  <tabstop>btn_veEditarProduto</tabstop>
+  <tabstop>btn_veFinalizarVenda</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
