@@ -119,6 +119,15 @@
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>deInicial</tabstop>
+  <tabstop>deFinal</tabstop>
+  <tabstop>btnBuscarVendas</tabstop>
+  <tabstop>btn_todasVendas</tabstop>
+  <tabstop>twVendas</tabstop>
+  <tabstop>btn_gerarPdf</tabstop>
+  <tabstop>twProdutosVendas</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

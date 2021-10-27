@@ -16,10 +16,11 @@ window_pesquisaVenda::window_pesquisaVenda(QWidget *parent) :
         }
     }
 
-    ui->tw_PeProdutos->setColumnCount(2);
-    ui->tw_PeProdutos->setColumnWidth(0,150);
-    ui->tw_PeProdutos->setColumnWidth(1,250);
-    QStringList cabecalho={"ID","Produto"};
+    ui->tw_PeProdutos->setColumnCount(3);
+    ui->tw_PeProdutos->setColumnWidth(0,50);
+    ui->tw_PeProdutos->setColumnWidth(1,300);
+    ui->tw_PeProdutos->setColumnWidth(2,75);
+    QStringList cabecalho={"Cod","Produto","Preço"};
     ui->tw_PeProdutos->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->tw_PeProdutos->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui->tw_PeProdutos->setHorizontalHeaderLabels(cabecalho);
@@ -39,15 +40,15 @@ void window_pesquisaVenda::on_btn_PeBuscar_clicked()
     funcoes_globais::removerLinhas(ui->tw_PeProdutos);
     if(ui->txt_PePesquisa->text()=="") {
         if(ui->rb_PeCodigo->isChecked()){
-            pesquisa="select id_produto,produto from tb_produtos order by id_produto";
+            pesquisa="select id_produto,produto,valor_venda from tb_produtos order by id_produto";
         }else{
-            pesquisa="select id_produto,produto from tb_produtos order by produto";
+            pesquisa="select id_produto,produto,valor_venda from tb_produtos order by produto";
         }
     }else{
         if(ui->rb_PeCodigo->isChecked()){
-            pesquisa="select id_produto,produto from tb_produtos where id_produto="+ui->txt_PePesquisa->text()+" order by id_produto";
+            pesquisa="select id_produto,produto,valor_venda from tb_produtos where id_produto="+ui->txt_PePesquisa->text()+" order by id_produto";
         }else{
-            pesquisa="select id_produto,produto from tb_produtos where produto like '%"+ui->txt_PePesquisa->text()+"%'order by produto";
+            pesquisa="select id_produto,produto,valor_venda from tb_produtos where produto like '%"+ui->txt_PePesquisa->text()+"%'order by produto";
         }
     }
 
@@ -59,6 +60,7 @@ void window_pesquisaVenda::on_btn_PeBuscar_clicked()
             ui->tw_PeProdutos->insertRow(linhas);
             ui->tw_PeProdutos->setItem(linhas,0,new QTableWidgetItem(query.value(0).toString()));
             ui->tw_PeProdutos->setItem(linhas,1,new QTableWidgetItem(query.value(1).toString()));
+            ui->tw_PeProdutos->setItem(linhas,2,new QTableWidgetItem(query.value(2).toString()));
             ui->tw_PeProdutos->setRowHeight(linhas,20);
             linhas++;
         }

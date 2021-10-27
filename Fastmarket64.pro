@@ -53,3 +53,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     recurssos.qrc
+
+DISTFILES += \
+    imagens/pagamento.png

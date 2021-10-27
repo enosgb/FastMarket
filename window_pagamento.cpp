@@ -12,9 +12,15 @@ window_pagamento::window_pagamento(QWidget *parent) :
 
     }
 
+    icon_pagamento.addFile(":/imagens/imagens/pagamento.png");
+
     ui->cb_tipoPagamento->addItem("Dinheiro");
     ui->cb_tipoPagamento->addItem("Cartão");
+    ui->cb_tipoPagamento->addItem("Cheque");
     ui->lb_totalTipoPagamento->setText("R$"+QString::number(variaveis_globais::totalGlobal));
+
+    ui->btn_icon_pagamento->setText("");
+    ui->btn_icon_pagamento->setIcon(icon_pagamento);
 
 }
 

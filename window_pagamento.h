@@ -19,6 +19,8 @@ public:
     explicit window_pagamento(QWidget *parent = nullptr);
     ~window_pagamento();
 
+    QIcon icon_pagamento;
+
     Conexao con;
     int linhas;
     void resetCampo();

@@ -17,7 +17,7 @@
    <item>
     <widget class="QTabWidget" name="tb_gerenciarProdutos">
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab_novoProduto">
       <attribute name="title">
@@ -388,8 +388,8 @@
   </layout>
  </widget>
  <tabstops>
-  <tabstop>txt_codigoProduto</tabstop>
   <tabstop>txt_descricaoProduto</tabstop>
+  <tabstop>txt_codigoProduto</tabstop>
   <tabstop>txt_fornecedor</tabstop>
   <tabstop>txt_valorCusto</tabstop>
   <tabstop>txt_qtdEstoque</tabstop>

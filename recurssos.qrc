@@ -2,6 +2,7 @@
     <qresource prefix="/imagens">
         <file>imagens/cadeado_aberto.png</file>
         <file>imagens/cadeado_fechado.png</file>
+        <file>imagens/pagamento.png</file>
     </qresource>
     <qresource prefix="/">
         <file>imagens/fastmarket-logo.jpg</file>

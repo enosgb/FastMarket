@@ -23,6 +23,7 @@ window_gerenciarEstoque::window_gerenciarEstoque(QWidget *parent) :
     }
     ui->tw_geProdutos->setColumnCount(2);
     ui->tb_gerenciarProdutos->setCurrentIndex(0);
+    ui->txt_descricaoProduto->setFocus();
 }
 
 window_gerenciarEstoque::~window_gerenciarEstoque()
