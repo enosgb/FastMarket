@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Pesquisa</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="recurssos.qrc">
+    <normaloff>:/imagens/icon.ico</normaloff>:/imagens/icon.ico</iconset>
+  </property>
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
@@ -123,6 +127,8 @@
   <tabstop>rb_PeCodigo</tabstop>
   <tabstop>rb_PeDescricao</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="recurssos.qrc"/>
+ </resources>
  <connections/>
 </ui>

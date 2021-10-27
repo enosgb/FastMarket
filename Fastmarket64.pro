@@ -56,3 +56,5 @@ RESOURCES += \
 
 DISTFILES += \
     imagens/pagamento.png
+
+RC_ICONS = icon.ico

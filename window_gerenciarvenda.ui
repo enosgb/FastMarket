@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Gerenciar Vendas</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="recurssos.qrc">
+    <normaloff>:/imagens/icon.ico</normaloff>:/imagens/icon.ico</iconset>
+  </property>
   <widget class="QDateEdit" name="deInicial">
    <property name="geometry">
     <rect>
@@ -128,6 +132,8 @@
   <tabstop>btn_gerarPdf</tabstop>
   <tabstop>twProdutosVendas</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="recurssos.qrc"/>
+ </resources>
  <connections/>
 </ui>

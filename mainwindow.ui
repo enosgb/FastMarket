@@ -20,8 +20,8 @@
    <string>FastMarket</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>imagens/vender.png</normaloff>imagens/vender.png</iconset>
+   <iconset resource="recurssos.qrc">
+    <normaloff>:/imagens/icon.ico</normaloff>:/imagens/icon.ico</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">background:rgb(255, 255, 255);</string>
@@ -227,6 +227,8 @@ QMenu::item:selected {
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="recurssos.qrc"/>
+ </resources>
  <connections/>
 </ui>

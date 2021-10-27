@@ -21,7 +21,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
 
-
     variaveis_globais::login=false;
     cadeado_fechado.addFile(":/imagens/imagens/cadeado_fechado.png");
     cadeado_aberto.addFile(":/imagens/imagens/cadeado_aberto.png");

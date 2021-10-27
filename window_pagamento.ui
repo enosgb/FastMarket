@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Pagamento</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="recurssos.qrc">
+    <normaloff>:/imagens/icon.ico</normaloff>:/imagens/icon.ico</iconset>
+  </property>
   <widget class="QComboBox" name="cb_tipoPagamento">
    <property name="geometry">
     <rect>
@@ -117,6 +121,8 @@ border-radius:10px;</string>
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="recurssos.qrc"/>
+ </resources>
  <connections/>
 </ui>

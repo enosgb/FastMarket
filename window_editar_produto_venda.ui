@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Editar Produtos</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="recurssos.qrc">
+    <normaloff>:/imagens/icon.ico</normaloff>:/imagens/icon.ico</iconset>
+  </property>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
@@ -103,6 +107,8 @@
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="recurssos.qrc"/>
+ </resources>
  <connections/>
 </ui>

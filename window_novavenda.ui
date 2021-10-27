@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Nova Venda</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="recurssos.qrc">
+    <normaloff>:/imagens/icon.ico</normaloff>:/imagens/icon.ico</iconset>
+  </property>
   <widget class="QLineEdit" name="txt_veQuantidade">
    <property name="geometry">
     <rect>
@@ -201,6 +205,8 @@
   <tabstop>btn_veEditarProduto</tabstop>
   <tabstop>btn_veFinalizarVenda</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="recurssos.qrc"/>
+ </resources>
  <connections/>
 </ui>

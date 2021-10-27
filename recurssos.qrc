@@ -7,5 +7,6 @@
     <qresource prefix="/">
         <file>imagens/fastmarket-logo.jpg</file>
         <file>imagens/vender.png</file>
+        <file>imagens/icon.ico</file>
     </qresource>
 </RCC>

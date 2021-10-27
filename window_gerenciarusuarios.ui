@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Gerenciar Usuarios</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="recurssos.qrc">
+    <normaloff>:/imagens/icon.ico</normaloff>:/imagens/icon.ico</iconset>
+  </property>
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
@@ -416,6 +420,8 @@
   <tabstop>btn_geVendasUsuario</tabstop>
   <tabstop>txt_gePesquisarUsuario</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="recurssos.qrc"/>
+ </resources>
  <connections/>
 </ui>
