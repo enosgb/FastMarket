@@ -10,11 +10,13 @@ Eu utilizei o QTcreator com o Desktop mingw.
 
 1 - Copilar o progama no QTCreator para release 
 
-2 - abrir o terminal do QT mingw
+2 - Entrar na pasta raiz (pasta release do programa).
 
-3 - Entrar na raiz do programa com o comando 'cd'.
+3 - abrir o terminal do QT mingw
 
-4 - copilar com o comando 
+4 - Entrar na raiz do programa com o comando 'cd'.
+
+5 - copilar com o comando 
 
   windeployqt.exe .
 
