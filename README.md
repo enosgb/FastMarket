@@ -6,21 +6,7 @@ Tecnologias utilizadas: C++,QT5 framework e SqLite.
 Estes arquivos podem ser copilados para windows ou linux,mas para isso você precisará de um copilador c++
 Eu utilizei o QTcreator com o Desktop mingw.
 
-# Como copilar programa (método pelo QTCreator)
-
-1 - Copilar o progama no QTCreator para release 
-
-2 - Entrar na pasta raiz (pasta release do programa).
-
-3 - abrir o terminal do QT mingw
-
-4 - Entrar na raiz do programa com o comando 'cd'.
-
-5 - copilar com o comando 
-
-  windeployqt.exe .
-
-# Prints
+#Prints
 
 ![alt text](https://github.com/hun251/FastMarket/blob/main/prints/1.png)
 

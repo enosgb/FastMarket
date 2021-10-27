@@ -129,6 +129,14 @@ void window_gerenciarVenda::on_btn_gerarPdf_clicked()
 
     painter.drawPixmap(25,25,QPixmap(":/imagens/fastmarket-logo.jpg"));
 
+    con.abrir();
+    QSqlQuery query;
+    QString nomeDoVendedor;
+    nomeDoVendedor = ui->twVendas->item(ui->twVendas->currentRow(),3)->text();
+    query.prepare("select nome_user from tb_usuarios where id_usuario = '"+nomeDoVendedor+"'");
+    query.exec();
+    query.first();
+
     painter.drawText(25,200,"ID:"+ui->twVendas->item(ui->twVendas->currentRow(),0)->text());
     painter.drawText(100,200,"Hora:"+ui->twVendas->item(ui->twVendas->currentRow(),2)->text());
     painter.drawText(220,200,"Data:"+ui->twVendas->item(ui->twVendas->currentRow(),1)->text());
@@ -144,21 +152,18 @@ void window_gerenciarVenda::on_btn_gerarPdf_clicked()
         linha+=salto;
     }
 
-    painter.drawText(25,320,"Forma de Pagamento:");
-    painter.drawText(200,320,ui->twVendas->item(ui->twVendas->currentRow(),5)->text());
-    painter.drawText(25,340,"Vendedor:");
+    linha+=40;
+    painter.drawText(25,linha,"Forma de Pagamento:");
+    painter.drawText(200,linha,ui->twVendas->item(ui->twVendas->currentRow(),5)->text());
+    linha+=salto;
+    painter.drawText(25,linha,"Vendedor:");
+    painter.drawText(200,linha,query.value(0).toString());
+    linha+=salto;
+    painter.drawText(25,linha,"Valor Total ");
+    painter.drawText(200,linha," R$ "+ui->twVendas->item(ui->twVendas->currentRow(),4)->text());
+    linha+=salto;
 
-    con.abrir();
-    QSqlQuery query;
-    QString nomeDoVendedor;
-    nomeDoVendedor = ui->twVendas->item(ui->twVendas->currentRow(),3)->text();
-    query.prepare("select nome_user from tb_usuarios where id_usuario = '"+nomeDoVendedor+"'");
-    query.exec();
-    query.first();
-
-    painter.drawText(200,340,query.value(0).toString());
-    painter.drawText(25,360,"Valor Total ");
-    painter.drawText(200,360," R$ "+ui->twVendas->item(ui->twVendas->currentRow(),4)->text());
+    linha+=salto;
 
     /*
     printer.newPage();
