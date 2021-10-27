@@ -115,7 +115,7 @@ void MainWindow::on_actionUsu_rios_triggered()
 void MainWindow::on_actionVendas_triggered()
 {
     if(variaveis_globais::login){
-        if(variaveis_globais::acceso_user=="Administrador"){
+        if(variaveis_globais::acceso_user=="Administrador" or variaveis_globais::acceso_user=="Comum"){
             window_gerenciarVenda wgerenciarVenda;
             wgerenciarVenda.exec();
         }else {

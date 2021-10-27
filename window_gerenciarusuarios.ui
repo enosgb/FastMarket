@@ -393,6 +393,29 @@
    </widget>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>txt_nomeNovoUsuario</tabstop>
+  <tabstop>txt_usernameNovoUsuario</tabstop>
+  <tabstop>txt_telefoneNovoUsuario</tabstop>
+  <tabstop>txt_senhaNovoUsurio</tabstop>
+  <tabstop>cb_acessoNovoUsuario</tabstop>
+  <tabstop>btn_gravaNovoUsuario</tabstop>
+  <tabstop>btn_novoUsuario</tabstop>
+  <tabstop>tw_geUsuarios</tabstop>
+  <tabstop>rb_geFiltroIdUsuario</tabstop>
+  <tabstop>rb_geFiltroNomeUsuario</tabstop>
+  <tabstop>btn_geBuscarUsuario</tabstop>
+  <tabstop>txt_geNomeUsuario</tabstop>
+  <tabstop>txt_geUserName</tabstop>
+  <tabstop>txt_geSenhaUsuario</tabstop>
+  <tabstop>txt_geTelefoneUsuario</tabstop>
+  <tabstop>cb_geAcessoUsuario</tabstop>
+  <tabstop>bnt_geGravarUsuario</tabstop>
+  <tabstop>btn_geExcluirUsuario</tabstop>
+  <tabstop>btn_geVendasUsuario</tabstop>
+  <tabstop>txt_gePesquisarUsuario</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

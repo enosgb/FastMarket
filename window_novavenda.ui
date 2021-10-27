@@ -175,6 +175,22 @@
     <string/>
    </property>
   </widget>
+  <widget class="QPushButton" name="btn_veListaDeVendas">
+   <property name="geometry">
+    <rect>
+     <x>610</x>
+     <y>330</y>
+     <width>100</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Lista de Vendas</string>
+   </property>
+   <property name="autoDefault">
+    <bool>false</bool>
+   </property>
+  </widget>
  </widget>
  <tabstops>
   <tabstop>txt_veQuantidade</tabstop>

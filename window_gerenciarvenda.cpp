@@ -65,6 +65,15 @@ void window_gerenciarVenda::on_twVendas_itemSelectionChanged()
     ui->twProdutosVendas->setRowCount(0);
     ui->twProdutosVendas->clear();
 
+    ui->twProdutosVendas->horizontalHeader()->setVisible(true);
+    ui->twProdutosVendas->setColumnCount(5);
+    QStringList cabecalho1={"Movimentação","Produto","Quantidade","Vlr.Und","Total"};
+    ui->twProdutosVendas->setHorizontalHeaderLabels(cabecalho1);
+    ui->twProdutosVendas->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    ui->twProdutosVendas->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->twProdutosVendas->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->twProdutosVendas->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
 
     con.abrir();
     int linhas=0;
@@ -159,7 +168,7 @@ void window_gerenciarVenda::on_btn_gerarPdf_clicked()
     painter.drawText(25,linha,"Vendedor:");
     painter.drawText(200,linha,query.value(0).toString());
     linha+=salto;
-    painter.drawText(25,linha,"Valor Total ");
+    painter.drawText(25,linha,"Valor Total: ");
     painter.drawText(200,linha," R$ "+ui->twVendas->item(ui->twVendas->currentRow(),4)->text());
     linha+=salto;
 

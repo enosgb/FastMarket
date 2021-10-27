@@ -45,6 +45,8 @@ private slots:
 
     void on_txt_veQuantidade_returnPressed();
 
+    void on_btn_veListaDeVendas_clicked();
+
 private:
     Ui::window_novaVenda *ui;
 };

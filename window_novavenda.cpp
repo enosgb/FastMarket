@@ -2,6 +2,7 @@
 #include "ui_window_novavenda.h"
 #include <QMessageBox>
 #include "window_editar_produto_venda.h"
+#include "window_gerenciarvenda.h"
 #include "mainwindow.h"
 #include "variaveis_globais.h"
 #include "funcoes_globais.h"
@@ -240,5 +241,12 @@ void window_novaVenda::on_btn_vePesquisar_clicked()
 void window_novaVenda::on_txt_veQuantidade_returnPressed()
 {
     ui->txt_veCodigo->setFocus();
+}
+
+
+void window_novaVenda::on_btn_veListaDeVendas_clicked()
+{
+    window_gerenciarVenda wgerenciarVenda;
+    wgerenciarVenda.exec();
 }
 
